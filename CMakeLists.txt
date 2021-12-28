@@ -11,6 +11,7 @@
 #    set(META_PLUGIN_DATE    "Plug-in date")
 #
 #    # Flags for plug-in to indicate when it can be loaded/unloaded
+#    #   "Never"
 #    #   "Startup"     - Should only be loaded/unloaded at initial HLDS execution
 #    #   "ChangeLevel" - Can be loaded/unloaded between maps
 #    #   "AnyPause"    - Can be loaded/unloaded at any time, and can be "paused" during a map.
@@ -87,7 +88,7 @@ endif()
 configure_file("include/metamod/config.h.in" "${CMAKE_CURRENT_SOURCE_DIR}/include/metamod/config.h" @ONLY)
 
 # Add include directories to a target
-target_include_directories(${PROJECT_NAME} INTERFACE "include")
+target_include_directories(${PROJECT_NAME} SYSTEM INTERFACE "include")
 
 # Find header and source files
 file(GLOB_RECURSE METAMOD_PUBLIC_HEADERS CONFIGURE_DEPENDS "include/*.h")
